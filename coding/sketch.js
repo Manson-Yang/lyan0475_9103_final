@@ -12,20 +12,20 @@ let maxWeight = 2;
 let angleDeg = 145;
 
 
-// 动态星空数据
+// Starry background
 let backgroundStars = [];
 let numBackgroundStars = 2000;
 
-// 中心结构动画角度
+// Main body rotation
 let coreRotation = 0;
-let coreRotationSpeed = 0.8; // 可以调快/慢
+let coreRotationSpeed = 0.8; 
 
-// 中间星星
+// central star
 let middleStarSize = 5;
-let sizeDirection = -1;       // 1=增大，-1=减小
+let sizeDirection = -1;       
 let starSizeMin = 5;
 let starSizeMax = 20;
-let starSizeStep = 0.1;      // 变化速度，可调
+let starSizeStep = 0.1;    
 let starSizeTimer = 1;
 
 
@@ -39,17 +39,18 @@ function setup() {
 	angleMode(DEGREES);
 	startStarSizeTimer();
 
-	// 初始化背景小星星
+	// initialization background
 	backgroundStars = [];
 	for (let i = 0; i <= numBackgroundStars; i++) {
 		backgroundStars.push({
 			x: random(width),
 			y: random(height),
-			r: random(0, width / 350),
-			twinkleSpeed: random(0.1, 1),
-			twinklePhase: random(1)
+			r: random(0.5, width / 350),
+			baseAlpha: random(120, 255),
+			twinkleAmp: random(40, 90),
 		});
 	}
+	
 
 	createMeteors();
 
@@ -74,21 +75,22 @@ function startStarSizeTimer() {
 function draw() {
 	background(0);
 
-	// --- 动态小星星背景 ---
 	for (let s of backgroundStars) {
-		let alpha = s.baseAlpha + 60 * sin(millis() * 0.001 * s.twinkleSpeed + s.twinklePhase);
 		noStroke();
-		fill(255, alpha);
+		fill(255); 
 		circle(s.x, s.y, s.r);
 	}
+	
+	
+	
 
-	// --- 流星动画 ---
+	// Meteor animation
 	meteorLayer.clear();
 	for (let m of meteors) {
 		m.x += cos(m.angle) * meteorSpeed;
 		m.y += sin(145) * meteorSpeed;
 
-		// 判断是否出界重生
+		// judging out of bounds
 		if (m.x > width + 50 || m.y > height + 50) {
 			m.x = random(-width * 0.2, width * 1.2);
 			m.y = random(-100, -20);
@@ -97,7 +99,7 @@ function draw() {
 			m.angle = radians(angleDeg + random(-5, 5));
 		}
 
-		// 绘制
+		// draw
 		meteorLayer.push();
 		meteorLayer.translate(m.x, m.y);
 		meteorLayer.rotate(m.angle);
@@ -114,7 +116,7 @@ function draw() {
 	}
 	image(meteorLayer, 0, 0);
 
-	// --- 中心结构动画 ---
+	// Main body animation
 	push();
 	translate(width / 2, height / 2);
 	coreRotation += coreRotationSpeed;
@@ -132,7 +134,7 @@ function draw() {
 	pop();
 
 
-	// --- 最顶层纹理 ---
+	// Texture
 	push();
 	translate(width / 2, height / 2);
 	rotate(coreRotation); 
@@ -152,7 +154,7 @@ function createMeteors() {
 	}
 }
 
-// 支持事件重置
+// Event reset
 function resetAllDynamic() {
 	createMeteors();
 	for (let s of backgroundStars) {
@@ -162,7 +164,7 @@ function resetAllDynamic() {
 	coreRotation = 0;
 }
 
-// 窗口适应
+// windows confit
 function windowResized() {
 	resizeCanvas(windowWidth, windowHeight);
 	meteorLayer = createGraphics(windowWidth, windowHeight);
@@ -210,7 +212,7 @@ function drawStar(starX, starY, starSize, changeD) {
 	}
 }
 
-// 控制所有同心圆与相关装饰的类
+// Central composite shape
 class createMutipleCircle {
 	constructor(centerX, centerY, centerSize) {
 		this.x = centerX
