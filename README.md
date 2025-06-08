@@ -41,9 +41,9 @@ Circular positions are calculated for each point along the orbit, with possible 
 My animation focuses on showing the state of the movement of planets in the universe. I use time-loop animation to correspond to each part, trying to show the laws of the operation of the universe.
 
 ## Visual & Artistic Inspiration
-Reference 1:![An image of the Star](assets/1.jpg)https://openprocessing.org/sketch/1150505
-Reference 2:![An image of meteor](assets/2.jpg)https://openprocessing.org/sketch/2567734
-Reference 3:![An image of main body](assets/3.jpg)https://www.pinterest.com/pin/70437487264302/
+Reference 1:![An image of the Star](assets/1.png)https://openprocessing.org/sketch/1150505
+Reference 2:![An image of meteor](assets/2.png)https://openprocessing.org/sketch/2567734
+Reference 3:![An image of main body](assets/3.png)https://www.pinterest.com/pin/70437487264302/
 
 These works inspired my decision to:
 1.Use real-world diagonal angles for meteors, not just horizontal/vertical.
