@@ -185,7 +185,6 @@ function drawRadialGradientCircle(x, y, r, innerColor, outerColor) {
 // draw star by ‘shape’
 function drawStar(starX, starY, starSize, changeD) {
 	noStroke()
-	fill('green')
 	for (let j = 0; j < 3; j++) {
 		let r = map(j, 0, 2, starSize, starSize / 3)
 		if (j % 2 !== 0) {
