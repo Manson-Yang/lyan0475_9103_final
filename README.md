@@ -53,6 +53,7 @@ Reference 3:https://www.pinterest.com/pin/70437487264302/ ![An image of main bod
 ## Details of My Individual Approach to Animating the Group Code
 ### 1. Animation Mode:
 I migrated most of the rendering logic into the draw() function, allowing continuous animation. This enabled:
+
 3.1. A “breathing” central star, whose size changes frame-by-frame (see the middleStarSize update).
 
 3.2. Continuous rotation of the central structure, achieved by incrementing and applying coreRotation.
@@ -69,14 +70,18 @@ I implemented a “breathing” effect by periodically increasing and decreasing
 The entire central structure is rotated by updating coreRotation every frame and applying a rotation transform with rotate(coreRotation). All the methods of the createMutipleCircle class are now affected by this rotation, causing the whole system to spin.
 
 ## Technical Explanation
-1. ![An image of main body](assets/T2.png)Added the definition of animation variables in meteor and subject to facilitate the later adjustment of parameters
+1. ![An image of main body](assets/T2.png)
+
+Added the definition of animation variables in meteor and subject to facilitate the later adjustment of parameters
 
 2. ![An image of main body](assets/T5.png)![An image of main body](assets/T7.png)
+
 **Radius modulation:** Dynamically scaled every 30 milliseconds via a sine-wave interpolation, producing a slow grow-shrink loop.
 
 **Position synchronization:** The effect tracks the main body's motion, ensuring the visual focal point remains dynamic.
 
 3. ![An image of main body](assets/T6.png)
+
 **Dynamic Meteor Animation Implementation**
 · Frame Reset: meteorLayer.clear() ensures clean redraw.
 · Direction: Trigonometric functions (cos()/sin())
@@ -85,4 +90,5 @@ The entire central structure is rotated by updating coreRotation every frame and
 4. Layered Rendering: State-safe drawing via push()/pop(), merged via image().
 
 5. ![An image of main body](assets/T9.png)
+
 Each frame increments coreRotation, driving the entire animation's rotational motion.
