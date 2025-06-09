@@ -42,7 +42,9 @@ My animation focuses on showing the state of the movement of planets in the univ
 
 ## Visual & Artistic Inspiration
 Reference 1:https://openprocessing.org/sketch/1150505 ![An image of the Star](assets/1.png)
+
 Reference 2:https://openprocessing.org/sketch/2567734 ![An image of meteor](assets/2.png)
+
 Reference 3:https://www.pinterest.com/pin/70437487264302/ ![An image of main body](assets/3.png)
 
 #### These works inspired my decision to:
@@ -70,25 +72,29 @@ I implemented a “breathing” effect by periodically increasing and decreasing
 The entire central structure is rotated by updating coreRotation every frame and applying a rotation transform with rotate(coreRotation). All the methods of the createMutipleCircle class are now affected by this rotation, causing the whole system to spin.
 
 ## Technical Explanation
-1. ![An image of main body](assets/T2.png)
+1. Added the definition of animation variables in meteor and subject to facilitate the later adjustment of parameters
 
-Added the definition of animation variables in meteor and subject to facilitate the later adjustment of parameters
+![An image of main body](assets/T2.png)
 
-2. ![An image of main body](assets/T5.png)![An image of main body](assets/T7.png)
-
-**Radius modulation:** Dynamically scaled every 30 milliseconds via a sine-wave interpolation, producing a slow grow-shrink loop.
+2. **Radius modulation:** Dynamically scaled every 30 milliseconds via a sine-wave interpolation, producing a slow grow-shrink loop.
 
 **Position synchronization:** The effect tracks the main body's motion, ensuring the visual focal point remains dynamic.
 
-3. ![An image of main body](assets/T6.png)
+![An image of main body](assets/T5.png)![An image of main body](assets/T7.png)
 
-**Dynamic Meteor Animation Implementation**
+
+
+3.**Dynamic Meteor Animation Implementation**
 · Frame Reset: meteorLayer.clear() ensures clean redraw.
 · Direction: Trigonometric functions (cos()/sin())
 · Speed: Scaled by meteorSpeed
 · Boundary Reset: if() triggers repositioning when meteors exit view
-4. Layered Rendering: State-safe drawing via push()/pop(), merged via image().
+·Layered Rendering: State-safe drawing via push()/pop(), merged via image().
 
-5. ![An image of main body](assets/T9.png)
+ ![An image of main body](assets/T6.png)
 
-Each frame increments coreRotation, driving the entire animation's rotational motion.
+
+4. Each frame increments coreRotation, driving the entire animation's rotational motion.
+
+![An image of main body](assets/T9.png)
+
