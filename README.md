@@ -90,18 +90,18 @@ The entire central structure is rotated by updating coreRotation every frame and
 · Speed: Scaled by meteorSpeed
 · Boundary Reset: if() triggers repositioning when meteors exit view
 ·Layered Rendering: State-safe drawing via push()/pop(), merged via image().(*Some of the code comes from Lara Fernanda De Souza Ferreira and P5.js*)
-[Link Text](https://openprocessing.org/sketch/2567734)
+[meteor effect](https://openprocessing.org/sketch/2567734)
 
-[Link Text](https://p5js.org/reference/p5/push/)
+[push()](https://p5js.org/reference/p5/push/)
 
-[Link Text](https://p5js.org/reference/p5/pop/)
+[pop()](https://p5js.org/reference/p5/pop/)
 
  ![An image of main body](assets/T6.png)
 
 
 4. Each frame increments coreRotation, driving the entire animation's rotational motion.(*Code creation based on p5.js teaching*)
 
-[Link Text](https://p5js.org/examples/transformation-rotate/)
+[Rotation effect](https://p5js.org/examples/transformation-rotate/)
 
 ![An image of main body](assets/T9.png)
 
