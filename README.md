@@ -47,14 +47,17 @@ Reference 3:https://www.pinterest.com/pin/70437487264302/ ![An image of main bod
 
 #### These works inspired my decision to:
 1. Use real-world diagonal angles for meteors, not just horizontal/vertical.
+
 2. Design a rotating and running main object.
 
 ## Details of My Individual Approach to Animating the Group Code
 ### 1. Animation Mode:
 I migrated most of the rendering logic into the draw() function, allowing continuous animation. This enabled:
-1. A “breathing” central star, whose size changes frame-by-frame (see the middleStarSize update).
-2. Continuous rotation of the central structure, achieved by incrementing and applying coreRotation.
-3. Animated meteor showers, where each meteor’s position is updated on every frame, making the meteors move across the screen.
+3.1. A “breathing” central star, whose size changes frame-by-frame (see the middleStarSize update).
+
+3.2. Continuous rotation of the central structure, achieved by incrementing and applying coreRotation.
+
+3.3. Animated meteor showers, where each meteor’s position is updated on every frame, making the meteors move across the screen.
 
 ### 2. Meteor Layer
 I turned meteors into objects with state (x, y, angle, etc.), and update their positions every frame. When meteors move off-screen, they are re-initialized at new starting positions, creating a seamless, infinite meteor shower.
@@ -67,16 +70,19 @@ The entire central structure is rotated by updating coreRotation every frame and
 
 ## Technical Explanation
 1. ![An image of main body](assets/T2.png)Added the definition of animation variables in meteor and subject to facilitate the later adjustment of parameters
+
 2. ![An image of main body](assets/T5.png)![An image of main body](assets/T7.png)
 **Radius modulation:** Dynamically scaled every 30 milliseconds via a sine-wave interpolation, producing a slow grow-shrink loop.
 
 **Position synchronization:** The effect tracks the main body's motion, ensuring the visual focal point remains dynamic.
+
 3. ![An image of main body](assets/T6.png)
 **Dynamic Meteor Animation Implementation**
 · Frame Reset: meteorLayer.clear() ensures clean redraw.
 · Direction: Trigonometric functions (cos()/sin())
 · Speed: Scaled by meteorSpeed
 · Boundary Reset: if() triggers repositioning when meteors exit view
-5. Layered Rendering: State-safe drawing via push()/pop(), merged via image().
-4. ![An image of main body](assets/T9.png)
+4. Layered Rendering: State-safe drawing via push()/pop(), merged via image().
+
+5. ![An image of main body](assets/T9.png)
 Each frame increments coreRotation, driving the entire animation's rotational motion.
