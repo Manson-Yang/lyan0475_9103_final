@@ -90,6 +90,7 @@ The entire central structure is rotated by updating coreRotation every frame and
 · Speed: Scaled by meteorSpeed
 · Boundary Reset: if() triggers repositioning when meteors exit view
 ·Layered Rendering: State-safe drawing via push()/pop(), merged via image().(*Some of the code comes from Lara Fernanda De Souza Ferreira and P5.js*)
+
 [meteor effect](https://openprocessing.org/sketch/2567734)
 
 [push()](https://p5js.org/reference/p5/push/)
