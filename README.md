@@ -68,15 +68,15 @@ The entire central structure is rotated by updating coreRotation every frame and
 ## Technical Explanation
 1. ![An image of main body](assets/T2.png)Added the definition of animation variables in meteor and subject to facilitate the later adjustment of parameters
 2. ![An image of main body](assets/T5.png)![An image of main body](assets/T7.png)
-**Radius modulation:**Dynamically scaled every 30 milliseconds via a sine-wave interpolation, producing a slow grow-shrink loop.
+**Radius modulation:** Dynamically scaled every 30 milliseconds via a sine-wave interpolation, producing a slow grow-shrink loop.
 
 **Position synchronization:** The effect tracks the main body's motion, ensuring the visual focal point remains dynamic.
 3. ![An image of main body](assets/T6.png)
 **Dynamic Meteor Animation Implementation**
-3.1. Frame Reset: meteorLayer.clear() ensures clean redraw.
-3.2. Direction: Trigonometric functions (cos()/sin())
-3.3. Speed: Scaled by meteorSpeed
-3.4. Boundary Reset: if() triggers repositioning when meteors exit view
-3.5. Layered Rendering: State-safe drawing via push()/pop(), merged via image().
+· Frame Reset: meteorLayer.clear() ensures clean redraw.
+· Direction: Trigonometric functions (cos()/sin())
+· Speed: Scaled by meteorSpeed
+· Boundary Reset: if() triggers repositioning when meteors exit view
+5. Layered Rendering: State-safe drawing via push()/pop(), merged via image().
 4. ![An image of main body](assets/T9.png)
 Each frame increments coreRotation, driving the entire animation's rotational motion.
